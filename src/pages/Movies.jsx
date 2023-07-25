@@ -23,6 +23,11 @@ function Movies() {
     setMovies(data);
     setLoading(false);
   }
+  function onSearchKeyPress(key){
+    if(key === "Enter"){
+      onSearch()
+    }
+  }
   useEffect(() => {
     fetchMovies();
   }, []);
@@ -36,6 +41,7 @@ function Movies() {
         <input
           type="text"
           onChange={(event) => setSearchTitle(event.target.value)}
+          onKeyPress={(event => onSearchKeyPress(event.key))}
           placeholder="search by name"
           className="form__input"
         />

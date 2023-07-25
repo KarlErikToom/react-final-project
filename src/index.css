@@ -50,15 +50,13 @@ NAV
   margin: 0 24px;
   font-size: 24px;
 }
-#movies .nav__link--anchor {
-  color: rgb(0, 0, 0);
-}
+
 .nav__link--primary {
   background-color: rgba(85, 20, 146, 0.918);
   padding: 12px 30px;
   margin-left: 24px;
   border-radius: 30px;
-  color: rgb(185, 185, 185);
+  color: white;
 }
 
 #header {
@@ -140,44 +138,44 @@ MOVIES
   text-align: center;
   margin-top: 12px;
 }
-.results__header{
+.results__header {
   position: absolute;
   top: -2%;
   left: 0;
 }
-.no-results{
+.no-results {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 70vh;
 }
-.no-results__text{
+.no-results__text {
   display: flex;
   flex-direction: column;
   align-items: start;
   width: 60%;
 }
-.no-results h1{
+.no-results h1 {
   font-size: 32px;
 }
-.no-results h2{
+.no-results h2 {
   margin: 32px 0;
 }
-.no-results__img{
+.no-results__img {
   width: 40%;
 }
-.movie__img--skeleton{
+.movie__img--skeleton {
   background-color: lightgray;
   width: 100%;
   height: 240px;
   filter: none;
 }
-.movie__title--skeleton{
+.movie__title--skeleton {
   width: 80px;
   height: 12px;
   background-color: lightgray;
 }
-.movie__year--skeleton{
+.movie__year--skeleton {
   width: 100%;
   margin-top: 12px;
   height: 12px;
@@ -192,9 +190,9 @@ MOVIES
   color: black;
   padding: 24px 12px;
   border-radius: 20px;
-  box-shadow: 10px 10px 159px 157px rgba(0,0,0,0.18);
-  -webkit-box-shadow: 10px 10px 159px 157px rgba(0,0,0,0.18);
-  -moz-box-shadow: 10px 10px 159px 157px rgba(0,0,0,0.18);
+  box-shadow: 10px 10px 159px 157px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 10px 10px 159px 157px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 10px 10px 159px 157px rgba(0, 0, 0, 0.18);
 }
 .movie__container h3 {
   font-size: 24px;

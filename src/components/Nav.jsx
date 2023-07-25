@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/Logo-No-Backround.png"
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -10,9 +11,9 @@ function Nav() {
         </figure>
         <ul className="nav__list">
           <li className="nav__link">
-            <a href="" className="nav__link--anchor">
+            <Link to={"/movies"} className="nav__link--anchor">
               Home
-            </a>
+            </Link>
           </li>
           <li className="nav__link">
             <a href="" className="nav__link--anchor">
