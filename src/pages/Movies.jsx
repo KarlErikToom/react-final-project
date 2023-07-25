@@ -9,15 +9,18 @@ function Movies() {
   let navigate = useNavigate();
   const [movies, setMovies] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
+  const [loading, setLoading] = useState(true);
 
   function onSearch() {
     fetchMovies(searchTitle);
   }
   async function fetchMovies() {
+    setLoading(true);
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=a398627a&s=${searchTitle}`
     );
     setMovies(data);
+    setLoading(false)
   }
   useEffect(() => {
     fetchMovies();
@@ -45,16 +48,37 @@ function Movies() {
             <div className="no-results">
               <div className="no-results__text">
                 <h1>We'll wait while you choose what to search for </h1>
-                <h2>We got info on your favorite Movies, Tv-shows, books and even games</h2>
+                <h2>
+                  We got info on your favorite Movies, Tv-shows, books and even
+                  games
+                </h2>
                 <h3>Whatever your looking for, we got it</h3>
               </div>
               <img className="no-results__img" src={wait} alt="" />
             </div>
+          ) : loading ? (
+            <div className="movies">
+              {new Array(6).fill(0).map((element, index) => (
+                <div className="movie" key={element|| index}>
+                  <div className="movie__wrapper">
+                    <figure className="movie__img--figure">
+                      <a href="">
+                        <img
+                          className="movie__img movie__img--skeleton"
+                          alt=""
+                        />
+                      </a>
+                    </figure>
+                    <div className="movie__info">
+                      <h3 className="movie__title--skeleton"></h3>
+                      <h3 className="movie__year--skeleton"></h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           ) : (
             <div className="movies">
-              <h1 className="results__header">
-                Showing results for: "{searchTitle}"
-              </h1>
               {movies.Search?.map((movie) => (
                 <div className="movie" key={movie.imdbID}>
                   <div className="movie__wrapper">
