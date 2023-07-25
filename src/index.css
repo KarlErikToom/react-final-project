@@ -41,7 +41,6 @@ NAV
 .nav__logo {
   width: 100%;
   scale: 3.6;
-  filter: invert(0.9);
 }
 .nav__list {
   display: flex;
@@ -150,7 +149,7 @@ MOVIES
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 80vh;
+  height: 70vh;
 }
 .no-results__text{
   display: flex;
@@ -187,15 +186,15 @@ MOVIES
 /*MOVIE PAGE*/
 #movie {
   height: 100vh;
-  background-color: #000000;
 }
 .movie__container {
   display: flex;
-  color: white;
-  border: 1px solid rgba(255, 217, 0, 0.39);
+  color: black;
   padding: 24px 12px;
   border-radius: 20px;
-  filter: blur();
+  box-shadow: 10px 10px 159px 157px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 10px 10px 159px 157px rgba(0,0,0,0.18);
+  -moz-box-shadow: 10px 10px 159px 157px rgba(0,0,0,0.18);
 }
 .movie__container h3 {
   font-size: 24px;
@@ -204,7 +203,7 @@ MOVIES
   font-size: 20px;
 }
 .selected__movie--img {
-  filter: drop-shadow(5px 5px 60px rgba(255, 217, 0, 0.39));
+  filter: drop-shadow(5px 5px 60px rgba(24, 23, 20, 0.39));
   margin-right: 12px;
 }
 .selected__movie--info {
@@ -215,4 +214,45 @@ MOVIES
 }
 .selected__movie--plot {
   text-align: end;
+}
+
+/*movie loader*/
+.spinner {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  border: 4.5px solid #0000;
+  border-radius: 50%;
+  border-color: #dbdcef #0000;
+  animation: spinner-e04l1k 1s infinite linear;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spinner::before,
+.spinner::after {
+  content: "";
+  grid-area: 1/1;
+  margin: 2.2px;
+  border: inherit;
+  border-radius: 50%;
+}
+
+.spinner::before {
+  border-color: #474bff #0000;
+  animation: inherit;
+  animation-duration: 0.5s;
+  animation-direction: reverse;
+}
+
+.spinner::after {
+  margin: 8.9px;
+}
+
+@keyframes spinner-e04l1k {
+  100% {
+    transform: rotate(1turn);
+  }
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import wait from "../assets/wait.svg";
+import noImage from "../assets/noImage.png";
 
 function Movies() {
   let navigate = useNavigate();
@@ -20,7 +21,7 @@ function Movies() {
       `https://www.omdbapi.com/?apikey=a398627a&s=${searchTitle}`
     );
     setMovies(data);
-    setLoading(false)
+    setLoading(false);
   }
   useEffect(() => {
     fetchMovies();
@@ -59,7 +60,7 @@ function Movies() {
           ) : loading ? (
             <div className="movies">
               {new Array(6).fill(0).map((element, index) => (
-                <div className="movie" key={element|| index}>
+                <div className="movie" key={element || index}>
                   <div className="movie__wrapper">
                     <figure className="movie__img--figure">
                       <a href="">
@@ -79,7 +80,7 @@ function Movies() {
             </div>
           ) : (
             <div className="movies">
-              {movies.Search?.map((movie) => (
+              {movies.Search?.slice(0, 6).map((movie) => (
                 <div className="movie" key={movie.imdbID}>
                   <div className="movie__wrapper">
                     <figure className="movie__img--figure">
@@ -87,7 +88,7 @@ function Movies() {
                         <img
                           className="movie__img"
                           onClick={() => navigate(`${movie.imdbID}/`)}
-                          src={movie.Poster}
+                          src={movie.Poster !== "N/A" ? movie.Poster : noImage}
                           alt=""
                         />
                       </a>
