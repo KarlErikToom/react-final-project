@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 li {
@@ -36,11 +36,12 @@ NAV
   justify-content: space-evenly;
 }
 .nav__logo--figure {
-  width: 180px;
+  width: 90px;
 }
 .nav__logo {
   width: 100%;
-  scale: 1.6;
+  scale: 3.6;
+  filter: invert(.9);
 }
 .nav__list {
   display: flex;
@@ -49,6 +50,9 @@ NAV
 .nav__link {
   margin: 0 24px;
   font-size: 24px;
+}
+#movies .nav__link--anchor{
+  color: white;
 }
 .nav__link--primary {
   background-color: rgba(85, 20, 146, 0.918);
@@ -71,7 +75,7 @@ LANDING
   width: 90%;
   text-align: center;
   font-weight: 700;
-  color: rgba(85, 20, 146, 0.918);  
+  color: rgba(85, 20, 146, 0.918);
 }
 .landing__subheader {
   font-size: 32px;
@@ -80,20 +84,73 @@ LANDING
 .landing__form {
   margin: 24px 0;
 }
-
+#header {
+  height: 30vh;
+  background-image: url(./assets/backround.jpg);
+  background-size: cover;
+}
+ .input__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+ }
+ .input__header{
+  color: white;
+  font-size: 32px;
+  margin-bottom: 12px;
+ }
 .form__input {
   height: 60px;
   width: 300px;
   border-radius: 30px;
-  text-align: center;
   font-size: 18px;
   margin-right: 12px;
+  text-align: center;
 }
 
-.landing__img--figure{
+.landing__img--figure {
   width: 60%;
   margin-top: 50px;
 }
-.landing__img{
+.landing__img {
   width: 100%;
+}
+/*
+MOVIES
+*/
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.movie {
+  width: 30%;
+  margin: 12px;
+  border-radius: 20px;
+  padding: 12px 24px;
+}
+.movie__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.movie__img--figure {
+  width: 60%;
+  filter: drop-shadow(-1px 5px 10px #000);
+}
+
+.movie__img {
+  width: 100%;
+  transition: all 300ms ease;
+}
+.movie__img:hover{
+  transform: scale(1.04);
+  transform: translateY(-5px);
+}
+.movie__info {
+  text-align: center;
+  margin-top: 12px;
 }
