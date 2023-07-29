@@ -1,14 +1,11 @@
 import React from "react";
-import logo from "../assets/Logo-No-Backround.png"
 import { Link } from "react-router-dom";
 
 function Nav() {
   return (
     <nav>
       <div className="nav__wrapper">
-        <figure className="nav__logo--figure">
-          <img src={logo} className="nav__logo" alt="" />
-        </figure>
+        <Link to={"/"}  className="logo">MovieWiki</Link>
         <ul className="nav__list">
           <li className="nav__link">
             <Link to={"/movies"} className="nav__link--anchor">
@@ -16,9 +13,9 @@ function Nav() {
             </Link>
           </li>
           <li className="nav__link">
-            <a href="" className="nav__link--anchor">
+            <Link to={"/movies"} className="nav__link--anchor">
               Find a movie
-            </a>
+            </Link>
           </li>
           <li className="nav__link">
             <a href="" className="nav__link--anchor nav__link--primary">

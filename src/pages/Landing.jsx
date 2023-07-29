@@ -12,18 +12,17 @@ function Landing() {
   function onSearch() {
     if (searchTitle.trim() !== "") {
       localStorage.setItem("searchQuery", searchTitle);
-      navigate("/movies")
+      navigate("/movies");
     }
   }
-  function onSearchKeyPress(key){
-    if(key === "Enter"){
-        onSearch()
+  function onSearchKeyPress(key) {
+    if (key === "Enter") {
+      onSearch();
     }
   }
   return (
-    <>
+    <section id="landing">
       <Nav />
-      <div className="container">
         <div className="landing__wrapper">
           <div className="landing__left">
             <div className="left__headers">
@@ -59,8 +58,7 @@ function Landing() {
             </figure>
           </div>
         </div>
-      </div>
-    </>
+    </section>
   );
 }
 

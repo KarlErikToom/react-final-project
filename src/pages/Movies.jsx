@@ -20,6 +20,7 @@ function Movies() {
   let navigate = useNavigate();
 
   function onSearch() {
+    setLoading(true)
     fetchMovies(searchTitle);
   }
   async function fetchMovies(searchTitle) {
@@ -35,12 +36,14 @@ function Movies() {
         Object.assign(movie, response.data);
       }
       setMovies(data);
+    } else{
+      setMovies([])
     }
     setLoading(false);
   }
   function onSearchKeyPress(key) {
     if (key === "Enter") {
-      localStorage.setItem("searchQuery", searchTitle)
+      localStorage.setItem("searchQuery", searchTitle);
       onSearch();
     }
   }
@@ -52,7 +55,7 @@ function Movies() {
       <header className="input__head">
         <div className="input__wrapper">
           <div className="input__header">
-            <h2>MovieWiki</h2>
+            <Link to={"/"} className="logo">MovieWiki</Link>
           </div>
           <div className="input">
             <input
@@ -97,8 +100,8 @@ function Movies() {
                         </a>
                       </figure>
                       <div className="movie__info">
-                        <h3 className="movie__title--skeleton"></h3>
-                        <h3 className="movie__year--skeleton"></h3>
+                        <p className="movie__title--skeleton"></p>
+                        <p className="movie__year--skeleton"></p>
                       </div>
                     </div>
                   </div>
