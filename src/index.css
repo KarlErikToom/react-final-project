@@ -110,6 +110,51 @@ NAV
 .input__btn:hover {
   cursor: pointer;
 }
+
+/*
+LANDING
+*/
+
+.landing__wrapper {
+  display: flex;
+  justify-content: center;
+}
+.landing__left{
+  width: 30%;
+  padding: 0 24px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.left__header1{
+  font-size: 42px;
+  margin-bottom: 24px;
+}
+.left__header2{
+  font-size: 32px;
+}
+.input__header{
+  margin-bottom: 12px;
+}
+.landing__right{
+  width: 60%;
+}
+.landing__figure {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.landing__img {
+  display: block;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to top right, transparent 40%, black 50%);
+  mask-image: linear-gradient(to top right, transparent 40%, black 50%);
+  border: 8px solid transparent;
+}
+
 /*
 MOVIES
 */
@@ -238,7 +283,7 @@ MOVIES
 }
 .movie__container {
   display: flex;
-  color: black;
+  color: white;
   padding: 24px 12px;
   border-radius: 20px;
   box-shadow: 10px 10px 159px 157px rgba(0, 0, 0, 0.18);

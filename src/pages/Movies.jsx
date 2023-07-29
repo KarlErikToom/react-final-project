@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import wait from "../assets/wait.svg";
 import noImage from "../assets/noImage.png";
@@ -13,15 +13,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Movies() {
-  let navigate = useNavigate();
+  const searchQuery = localStorage.getItem("searchQuery") || "";
   const [movies, setMovies] = useState([]);
-  const [searchTitle, setSearchTitle] = useState("");
+  const [searchTitle, setSearchTitle] = useState(searchQuery);
   const [loading, setLoading] = useState(true);
+  let navigate = useNavigate();
 
   function onSearch() {
     fetchMovies(searchTitle);
   }
-  async function fetchMovies() {
+  async function fetchMovies(searchTitle) {
     setLoading(true);
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=a398627a&s=${searchTitle}`
@@ -39,12 +40,13 @@ function Movies() {
   }
   function onSearchKeyPress(key) {
     if (key === "Enter") {
+      localStorage.setItem("searchQuery", searchTitle)
       onSearch();
     }
   }
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    fetchMovies(searchQuery);
+  }, [searchQuery]);
   return (
     <section id="movies">
       <header className="input__head">
