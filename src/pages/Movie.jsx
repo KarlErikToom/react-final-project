@@ -49,16 +49,25 @@ function Movie() {
                       {movieData.Title}
                     </h3>
                     <h3 className="selected__movie--director">
+                      <span className="span">Director: {""}</span>
                       {movieData.Director}
                     </h3>
                     <h3 className="selected__movie--writers">
+                      <span className="span">Writers: {""}</span>
+
                       {movieData.Writer}
                     </h3>
                     <h3 className="selected__movie--actors">
+                      <span className="span">Actors: {""}</span>
+
                       {movieData.Actors}
                     </h3>
                     <p className="selected__movie--plot">{movieData.Plot}</p>
-                    <p className="selected__movie--genre">{movieData.Genre}</p>
+                    <p className="selected__movie--genre">
+                      {" "}
+                      <span className="span">Genre: {""}</span>
+                      {movieData.Genre}
+                    </p>
                   </div>
                 </div>
               )}

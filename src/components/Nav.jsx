@@ -8,7 +8,7 @@ function Nav() {
         <Link to={"/"}  className="logo">MovieWiki</Link>
         <ul className="nav__list">
           <li className="nav__link">
-            <Link to={"/movies"} className="nav__link--anchor">
+            <Link to={"/"} className="nav__link--anchor">
               Home
             </Link>
           </li>
