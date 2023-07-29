@@ -123,6 +123,7 @@ LANDING
 .landing__wrapper {
   display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 .landing__left{
   width: 30%;
@@ -159,7 +160,19 @@ LANDING
   mask-image: linear-gradient(to top right, transparent 40%, black 50%);
   border: 8px solid transparent;
 }
-
+.slide-in{
+  animation: slidein 1s ease;
+}
+@keyframes slidein{
+  0%{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 /*
 MOVIES
 */
