@@ -5,8 +5,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Nav from "../components/Nav";
 import wait from "../assets/wait.svg";
 import noImage from "../assets/noImage.png";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faThumbsUp,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function Movies() {
   let navigate = useNavigate();
@@ -22,7 +26,15 @@ function Movies() {
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=a398627a&s=${searchTitle}`
     );
-    setMovies(data);
+    if (data.Search) {
+      for (const movie of data.Search) {
+        const response = await axios.get(
+          `https://www.omdbapi.com/?apikey=a398627a&i=${movie.imdbID}`
+        );
+        Object.assign(movie, response.data);
+      }
+      setMovies(data);
+    }
     setLoading(false);
   }
   function onSearchKeyPress(key) {
@@ -108,8 +120,29 @@ function Movies() {
                         </a>
                       </figure>
                       <div className="movie__info">
-                        <h3 className="movie__title">{movie.Title}</h3>
-                        <h3 className="movie__year">{movie.Year}</h3>
+                        <p className="movie__title">{movie.Title}</p>
+                        <p className="movie__rating">
+                          <b>IMDB rating</b>
+                          <FontAwesomeIcon
+                            className="star"
+                            icon={faStar}
+                          />{" "}
+                          <span className="rating">{movie.imdbRating}</span>
+                        </p>
+                        <p className="movie__summary">
+                          {movie.Plot.substring(0, 90)}...
+                        </p>
+                        <p className="movie__type">
+                          {" "}
+                          <b className="bold">Type</b> {movie.Type}
+                        </p>
+                        <p className="movie__genre">
+                          {" "}
+                          <b>Genre</b> {movie.Genre}
+                        </p>
+                      </div>
+                      <div className="movie__votes">
+                        <FontAwesomeIcon icon={faThumbsUp} /> {movie.imdbVotes}
                       </div>
                     </div>
                   </div>

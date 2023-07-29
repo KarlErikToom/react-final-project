@@ -13,6 +13,7 @@ function Movie() {
     const { data } = await axios.get(
       `https://www.omdbapi.com/?apikey=a398627a&i=${imdbID}`
     );
+
     setMovieData(data);
     setLoading(false);
   }
@@ -25,7 +26,9 @@ function Movie() {
       <div className="container">
         <div className="row">
           {loading
-            ? new Array(1).fill(0).map((element, index) => <div class="spinner"></div>)
+            ? new Array(1)
+                .fill(0)
+                .map((element, index) => <div class="spinner"></div>)
             : movieData && (
                 <div className="movie__container">
                   <figure className="selected__movie--figure">
