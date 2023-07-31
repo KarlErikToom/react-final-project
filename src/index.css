@@ -147,7 +147,7 @@ LANDING
 .left__header2 {
   font-size: 32px;
 }
-.input__header {
+.input__header--landing {
   margin-bottom: 12px;
 }
 .landing__right {
@@ -377,8 +377,11 @@ MOVIES
   .left__header2{
     font-size: 28px;
   }
-  .input{
+  .input__landing{
     margin-top: 24px;
+  }
+  .input__wrapper{
+    width: 100%;
   }
 }
 
@@ -421,11 +424,18 @@ MOVIES
   .landing__figure{
     height: auto;
   }
+  .movie{
+    width: 45%;
+  }
+
 }
 
 @media(max-width:576px){
   .nav__link{
     font-size: 18px;
     margin: 0 12px;
+  }
+  .movie{
+    width: 80%;
   }
 }

@@ -57,8 +57,8 @@ function Landing() {
                     ever need
                   </h2>
                 </div>
-                <div className="input">
-                  <h3 className="input__header">
+                <div className="input input__landing">
+                  <h3 className="input__header--landing">
                     Seach for whatever your heart desires
                   </h3>
                   <input
