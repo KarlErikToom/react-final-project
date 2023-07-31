@@ -29,6 +29,12 @@ a {
   margin: 0 auto;
   padding: 0 24px;
 }
+.row2{
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 .btn {
   padding: 6px 12px;
   font-size: 18px;
@@ -50,7 +56,7 @@ NAV
   justify-content: space-evenly;
   height: 10vh;
 }
-.logo{
+.logo {
   font-size: 32px;
   color: white;
   font-weight: 700;
@@ -63,7 +69,7 @@ NAV
   margin: 0 24px;
   font-size: 24px;
 }
-.nav__link--anchor{
+.nav__link--anchor {
   color: white;
 }
 
@@ -117,16 +123,16 @@ NAV
 /*
 LANDING
 */
-#landing{
-  height: 100vh;
+#landing {
+  height: 90vh;
 }
 .landing__wrapper {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
 }
-.landing__left{
-  width: 30%;
+.landing__left {
+  width: 50%;
   padding: 0 24px;
   color: white;
   display: flex;
@@ -134,33 +140,30 @@ LANDING
   align-items: center;
   justify-content: space-evenly;
 }
-.left__header1{
+.left__header1 {
   font-size: 42px;
   margin-bottom: 24px;
 }
-.left__header2{
+.left__header2 {
   font-size: 32px;
 }
-.input__header{
+.input__header {
   margin-bottom: 12px;
 }
-.landing__right{
-  width: 60%;
+.landing__right {
+  width: 50%;
 }
 .landing__figure {
-  position: relative;
-  overflow: hidden;
   width: 100%;
 }
-.span{
-  font-weight: 400;
-}
 .landing__img {
-  display: block;
   width: 100%;
   -webkit-mask-image: linear-gradient(to top right, transparent 40%, black 50%);
   mask-image: linear-gradient(to top right, transparent 40%, black 50%);
   border: 8px solid transparent;
+}
+.span {
+  font-weight: 400;
 }
 
 /*
@@ -355,5 +358,74 @@ MOVIES
 @keyframes spinner-e04l1k {
   100% {
     transform: rotate(1turn);
+  }
+}
+
+
+
+
+@media(max-width:1200px){
+  .landing__left{
+    width: 40%;
+  }
+  .landing__right{
+    width: 60%;
+  }
+  .left__header1{
+    font-size: 38px;
+  }
+  .left__header2{
+    font-size: 28px;
+  }
+  .input{
+    margin-top: 24px;
+  }
+}
+
+@media(max-width:992px){
+  .landing__left{
+    width: 60%;
+  }
+  .landing__figure{
+    height: 700px;
+    overflow-y: hidden;
+  }
+  .landing__img{
+    height: 100%;
+  }
+}
+
+@media(max-width:768px){
+  #landing{
+    background-image: url(./assets/fight.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .landing__wrapper{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .landing__left{
+    width: 100%;
+    max-width: 700px;
+  }
+  .left__headers{
+    text-align: center;
+  }
+  .landing__right{
+    display: none;
+  }
+  .landing__figure{
+    height: auto;
+  }
+}
+
+@media(max-width:576px){
+  .nav__link{
+    font-size: 18px;
+    margin: 0 12px;
   }
 }
